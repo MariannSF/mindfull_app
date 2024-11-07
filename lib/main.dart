@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mindfull_app/screens/intro_screen.dart';
+import 'package:mindfull_app_2/screens/intro_screen.dart';
 
 void main() {
   runApp(const MainApp());

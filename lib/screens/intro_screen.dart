@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mindfull_app/screens/setting_screen.dart';
+import 'package:mindfull_app_2/screens/setting_screen.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});

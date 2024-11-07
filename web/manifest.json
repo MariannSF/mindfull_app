@@ -1,6 +1,6 @@
 {
-    "name": "mindfull_app",
-    "short_name": "mindfull_app",
+    "name": "mindfull_app_2",
+    "short_name": "mindfull_app_2",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
