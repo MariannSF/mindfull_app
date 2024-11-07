@@ -1,3 +1,3 @@
-# mindfull_app_2
+# mindfull_app
 
 A new Flutter project.
