@@ -28,7 +28,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings'),),
+      appBar: AppBar(title: const Text('Settings'),
+      leading: IconButton(onPressed: () {Navigator.pop(context);}, icon: Icon(Icons.arrow_back)),),
       body:  Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -81,6 +82,7 @@ Future<void> getSettings() async {
   setState(() {
     _selectedImage = settings['image'] ?? 'Lake';
     txtName.text = settings['name'] ?? '';
+    if(_selectedImage == '') _selectedImage = 'Lake';
   });
 }
 

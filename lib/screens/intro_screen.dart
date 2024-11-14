@@ -19,16 +19,29 @@ class _IntroScreenState extends State<IntroScreen> {
   void initState() {
     
     super.initState();
-    final helper = SpHelper();
-    helper.getSettings().then((settings) {
-      name = settings['name'] ??  '';
-      image = settings['image'] ?? 'Lake';
-      setState(() {
+    _loadSettings();
+    //final helper = SpHelper();
+    //helper.getSettings().then((settings) {
+    //  name = settings['name'] ??  '';
+    //  image = settings['image'] ?? 'Lake';
+     // if(image =='') image = 'Lake';
+     // setState(() {
         
-      });
+     // });
 
-    });
+   // });
   }
+  void _loadSettings() {
+  final helper = SpHelper();
+  helper.getSettings().then((settings) {
+    setState(() {
+      name = settings['name'] ?? '';
+      image = settings['image'] ?? 'Lake';
+      if (image == '') image = 'Lake';
+    });
+  });
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,15 +65,27 @@ class _IntroScreenState extends State<IntroScreen> {
                 offset: Offset(5, 5))],
               fontSize: 24),
           )),
-          Align(alignment: const Alignment(0, 0.5),
+          Align(
+            alignment: const Alignment(0, 0.5),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => const QuoteScreen())
-                );
+                Navigator.pushNamed(context, '/settings') .then((_){
+                  _loadSettings();
+
+                });
               },
-               child: const Text('Start')),
+               child: const Text('Settings Page'),
+               ),
+          ),
+          
+
+
+          Align(alignment: Alignment(0, 0.7),
+            child: ElevatedButton(onPressed: () {
+              Navigator.pushNamed(context, '/quote');
+            }, 
+            child: Text("Quotes Page"
+            )),
           )
         ],
       ),
